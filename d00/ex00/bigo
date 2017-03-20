@@ -1,0 +1,3 @@
+O(n) time
+where n is total number of characters in names
+O(1) space
