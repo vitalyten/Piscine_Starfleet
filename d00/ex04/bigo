@@ -1,0 +1,3 @@
+O(n + m) time
+O(p) space
+For text of length n and p patterns of combined length m
