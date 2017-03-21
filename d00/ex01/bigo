@@ -1,0 +1,3 @@
+O(n Logn) time
+where n is total number of characters in names
+O(n) space
