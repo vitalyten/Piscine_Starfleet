@@ -1,0 +1,3 @@
+O(n * n + n * Log n) time
+O(n + n) space
+For text of length n
