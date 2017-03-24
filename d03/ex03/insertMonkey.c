@@ -6,7 +6,7 @@
 /*   By: vtenigin <vtenigin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/23 23:30:02 by vtenigin          #+#    #+#             */
-/*   Updated: 2017/03/24 00:17:59 by vtenigin         ###   ########.fr       */
+/*   Updated: 2017/03/24 14:05:30 by vtenigin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	swapright(t_node **n1, t_node **n2)
 
 int	ismaxheap(t_node *node)
 {
-	if (node->left == NULL && node->right == NULL)
+	if (node == NULL)
 		return (1);
 	if (node->left && node->left->value > node->value)
 		return (0);
@@ -89,7 +89,7 @@ int	ismaxheap(t_node *node)
 
 int	isminheap(t_node *node)
 {
-	if (node->left == NULL && node->right == NULL)
+	if (node == NULL)
 		return (1);
 	if (node->left && node->left->value < node->value)
 		return (0);
@@ -102,7 +102,6 @@ void	maxify(struct s_node **root)
 {
 	if (*root == NULL)
 		return;
-	puts("test");
 	while (!ismaxheap(*root))
 	{
 		maxify(&((*root)->left));
@@ -132,22 +131,32 @@ int	countelem(t_node *node)
 
 void insertrec(struct s_node **root, struct s_node *monkey)
 {
-	if (*root == NULL)
+
+	if ((*root)->left == NULL)
 	{
-		*root = monkey;
+		((*root)->left = monkey);
+		return;
+	}
+	if ((*root)->right == NULL)
+	{
+		((*root)->right = monkey);
 		return;
 	}
 	if (countelem((*root)->left) > countelem((*root)->right))
-		insertMonkey(&((*root)->right), monkey);
+		insertrec(&(*root)->right, monkey);
 	else
-		insertMonkey(&((*root)->left), monkey);
+		insertrec(&(*root)->left, monkey);
 }
 
 void insertMonkey(struct s_node **root, struct s_node *monkey)
 {
 	insertrec(root, monkey);
+	printBinaryTree(*root);
+	maxify(root);
 
-	// maxify(root);
+	printBinaryTree(*root);
+
+	
 	// int h;
 	// t_node *tmp;
 

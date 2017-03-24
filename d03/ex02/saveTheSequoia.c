@@ -6,7 +6,7 @@
 /*   By: vtenigin <vtenigin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/23 20:42:23 by vtenigin          #+#    #+#             */
-/*   Updated: 2017/03/23 23:15:00 by vtenigin         ###   ########.fr       */
+/*   Updated: 2017/03/24 14:06:26 by vtenigin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	swapright(t_node **n1, t_node **n2)
 
 int	ismaxheap(t_node *node)
 {
-	if (node->left == NULL && node->right == NULL)
+	if (node == NULL)
 		return (1);
 	if (node->left && node->left->value > node->value)
 		return (0);
@@ -80,7 +80,7 @@ int	ismaxheap(t_node *node)
 
 int	isminheap(t_node *node)
 {
-	if (node->left == NULL && node->right == NULL)
+	if (node == NULL)
 		return (1);
 	if (node->left && node->left->value < node->value)
 		return (0);

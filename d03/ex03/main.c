@@ -20,9 +20,9 @@ int main(void)
 	--------------------*/
 	printf("inserting some monkey\n");
 	insertMonkey(&root, randomMonkey());
-	printBinaryTree(root);
-  maxify(&root);
-  printBinaryTree(root);
+	// printBinaryTree(root);
+  // maxify(&root);
+  // printBinaryTree(root);
   
 
 
