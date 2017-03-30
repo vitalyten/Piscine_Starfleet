@@ -1,0 +1,3 @@
+O(n*n!) time
+O(n*n!) space
+where n size of the string
