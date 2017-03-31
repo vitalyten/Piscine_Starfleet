@@ -6,7 +6,7 @@
 /*   By: vtenigin <vtenigin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/30 16:36:36 by vtenigin          #+#    #+#             */
-/*   Updated: 2017/03/30 19:57:08 by vtenigin         ###   ########.fr       */
+/*   Updated: 2017/03/30 20:52:14 by vtenigin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,15 +120,13 @@ struct s_max *maxSlidingWindow(int *arr, int n, int k)
 	int j = 0;
 	for ( ; i < n; ++i)
 	{
-		max->max[j++] = deque->first->value;
+		max->max[j++] = arr[deque->first->value];
 		while (deque->first != NULL && deque->first->value <= i - k)
 			popFront(deque);
 		while (deque->first != NULL && arr[i] >= arr[deque->last->value])
 			popBack(deque);
 		pushBack(deque, i);
 	}
-	max->max[j] = deque->first->value;
-	for (i = 0; i < max->length; i++)
-		max->max[i] = arr[max->max[i]];
+	max->max[j] = arr[deque->first->value];
 	return (max);
 }
