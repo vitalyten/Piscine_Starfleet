@@ -1,0 +1,4 @@
+O(n) time
+O(k) space
+where n is the number of elements in the array
+where k is the size fo the window
